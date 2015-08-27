@@ -1,32 +1,35 @@
 # Best Restaurant
 
-##### _{Brief description of application}, {Date of current version}_
+##### Object-Oriented Java with SQL Exercise for Epicodus, 27 August 2015
 
 #### By Nataliya Bareeva-Miller and Stephany Garcia
 
 ## Description
 
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. Do you want other developers to use this code in their apps? Talk about things like that here in simple terms.}_
+Create a website where users can add their favorite restaurants by the type of cuisine they offer.
 
 ## Setup
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Are there other applications this app depends on?}_
+Clone this repository.
+Using the command line, navigate to the top level of the cloned directory.
+Make sure you have gradle installed. Then run the following command in your terminal:
+gradle run
+Go to localhost:4567.
+Make your own list of favorite restaurants!
 
 ## Technologies Used
 
-_{Tell me about the languages you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+Java
+Spark
+Velocity
+Gradle
+JUnit
+FluentLenium
+PostgreSQL
 
 ### Legal
 
-*{This is boilerplate legal language. Read through it, and if you like it, use it. There are other license agreements online, but you can generally copy and paste this.}*
-
-Copyright (c) 2015 **_{List of contribtors}_**
+Copyright (c) 2015 Nataliya Bareeva-Miller, Stephany Garcia
 
 This software is licensed under the MIT license.
 

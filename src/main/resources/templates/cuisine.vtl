@@ -11,7 +11,7 @@
   </form>
 
   #if($restaurants)
-  <p>To manage your restaurant list, click on a cuisine:</p>
+  <p>Click on a restaurant to manage it:</p>
   <ul>
     #foreach($restaurant in $restaurants)
   <li><a href="/cuisines/$cuisine.getId()/restaurants/$restaurant.getId()/update">$restaurant.getName()</a></li>
@@ -21,13 +21,13 @@
   <p>There are no restaurants in your list yet!</p>
   #end
 
+  <br>
+  <form action="/cuisines/$cuisine.getId()/restaurants/delete-all" method="post">
+    <button type="submit" class="btn btn-success">Delete all restaurants from this cuisine</button>
+  </form>
 
-  <!--DELETE RESTAURANT BUTTON-->
-<br>
-<form action="/cuisines/$cuisine.getId()/restaurants/delete" method="post">
-  <button type="submit" class="btn btn-success">Delete restaurant</button>
-</form>
-<br>
+  <br>
+
 
 
 <!--BUTTONS TO UPDATE AND DELETE CUISINE-->

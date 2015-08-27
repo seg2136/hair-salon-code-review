@@ -74,6 +74,16 @@ public class Restaurant {
     }
   }
 
+  public void deleteRestaurants() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM restaurants WHERE cuisine_id=:id AND id>=1";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .addParameter("cuisine_id", cuisine_id)
+        .executeUpdate();
+    }
+  }
+
   public void update(String name) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "UPDATE restaurants SET name = :name WHERE id=:id";
