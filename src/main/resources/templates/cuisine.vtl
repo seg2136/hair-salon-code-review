@@ -1,0 +1,45 @@
+<h1>Add a Restaurant to $cuisine.getDescription()</h1>
+
+    <form action="/cuisines/$cuisine.getId()/restaurants" method="post">
+
+    <div class="form-group">
+      <label for="name">Add restaurant</label>
+      <input id="name" name="name" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success">Add restaurant</button>
+  </form>
+
+  #if($restaurants)
+  <p>To manage your restaurant list, click on a cuisine:</p>
+  <ul>
+    #foreach($restaurant in $restaurants)
+  <li><a href="/cuisines/$cuisine.getId()/restaurants/$restaurant.getId()/update">$restaurant.getName()</a></li>
+  #end
+</ul>
+  #else
+  <p>There are no restaurants in your list yet!</p>
+  #end
+
+
+  <!--DELETE RESTAURANT BUTTON-->
+<br>
+<form action="/cuisines/$cuisine.getId()/restaurants/delete" method="post">
+  <button type="submit" class="btn btn-success">Delete restaurant</button>
+</form>
+<br>
+
+
+<!--BUTTONS TO UPDATE AND DELETE CUISINE-->
+<br>
+  <form action="/cuisines/$cuisine.getId()/delete" method="post">
+    <button type="submit" class="btn btn-success">Delete cuisine</button>
+  </form>
+
+<form action="/cuisines/$cuisine.getId()/update">
+  <button type="submit" class="btn btn-info">Update this cuisine</button>
+</form>
+<br>
+
+
+<a href="/">Return to Main Page</a>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AppTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2015-08-26T23:02:07" hostname="epicodus-108.local" time="0.598">
+  <properties/>
+  <testcase name="rootTest" classname="AppTest" time="0.338"/>
+  <testcase name="cuisineRestaurantsFormIsDisplayed" classname="AppTest" time="0.055"/>
+  <testcase name="cuisineIsCreatedTest" classname="AppTest" time="0.095"/>
+  <testcase name="cuisineIsDisplayedTest" classname="AppTest" time="0.037"/>
+  <testcase name="restaurantIsAddedAndDisplayed" classname="AppTest" time="0.053"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[[Thread-4] INFO spark.webserver.SparkServer - == Spark has ignited ...
+[Thread-4] INFO spark.webserver.SparkServer - >> Listening on 0.0.0.0:4567
+[Thread-4] INFO org.eclipse.jetty.server.Server - jetty-9.0.2.v20130417
+[Thread-4] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@3efff1db{HTTP/1.1}{0.0.0.0:4567}
+[Test worker] INFO spark.webserver.SparkServer - >>> Spark shutting down ...
+[Test worker] INFO org.eclipse.jetty.server.Server - Graceful shutdown org.eclipse.jetty.server.Server@4dee9f10 by 
+[Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@3efff1db{HTTP/1.1}{0.0.0.0:4567}
+[Test worker] INFO spark.webserver.SparkServer - done
+]]></system-err>
+</testsuite>

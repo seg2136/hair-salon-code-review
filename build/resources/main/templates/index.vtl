@@ -1,0 +1,35 @@
+<h1>Your Favorite Restaurants!</h1>
+
+<h2>Add your favorite cuisines:</h2>
+
+
+
+<form action="/cuisines" method="post">
+  <label for="description">Cuisine</label>
+  <input id="description" name="description" type="text">
+  <button type="submit" class="btn btn-success">Add Cuisine</button>
+</form>
+
+<form action="/restaurants" method="post">
+  <div class="form-group">
+  <label for="cuisine_id">Select a cuisine</label>
+  <select id="cuisine_id" name="cuisine_id" type="text">
+    #foreach($cuisine in $cuisines)
+      <option value="$cuisine.getId()">$cuisine.getDescription()</option>
+      #end
+    </select>
+  </div>
+
+
+</form>
+
+    #if($cuisines)
+    <p>To manage your restaurant list, click on a cuisine:</p>
+    <ul>
+      #foreach($cuisine in $cuisines)
+    <li><a href="/cuisines/$cuisine.getId()">$cuisine.getDescription()</a></li>
+    #end
+  </ul>
+    #else
+    <p>There are no cuisines in your list yet!</p>
+    #end
