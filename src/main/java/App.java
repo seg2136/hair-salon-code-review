@@ -33,13 +33,9 @@ public class App {
 
     //HTTP GET METHOD FOR DISPLAYING SAVED CUISINES
     get("/cuisines/:id", (request, response) -> {
-      //need to put :id in the url so that we can grab it below
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":id")));
-      model.put("cuisine", cuisine);
-      model.put("template", "templates/cuisine.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+      response.redirect("/cuisines/" + request.params(":id") + "/restaurants");
+      return null;
+    });
 
     //HTTP POST METHOD FOR SAVING RESTAURANTS TO CUISINE
     post("/cuisines/:id/restaurants", (request, response) -> {
@@ -49,7 +45,8 @@ public class App {
       Restaurant newRestaurant = new Restaurant(name, cuisine.getId());
       newRestaurant.save();
       model.put("cuisine", cuisine);
-      model.put("restaurants", Restaurant.all());
+      model.put("restaurant", newRestaurant);
+      model.put("restaurants", Restaurant.allCuisineRestaurants(Integer.parseInt(request.params(":id"))));
       model.put("template", "templates/cuisine.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -59,7 +56,7 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":id")));
       model.put("cuisine", cuisine);
-      model.put("restaurants", cuisine.getRestaurants());
+      model.put("restaurants", Restaurant.allCuisineRestaurants(Integer.parseInt(request.params(":id"))));
       model.put("template", "templates/cuisine.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -129,9 +126,11 @@ public class App {
     post("/cuisines/:cuisine_id/restaurants/delete-all", (request, response) -> {
       //need to put :id in the url so that we can grab it below
       HashMap<String, Object> model = new HashMap<String, Object>();
+      String name = request.queryParams("name");
       Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":cuisine_id")));
+      Restaurant restaurant = new Restaurant(name, cuisine.getId());
       restaurant.deleteRestaurants();
-      model.put("cuisines", cuisine);
+      model.put("cuisine", cuisine);
       model.put("restaurants", Restaurant.all());
       model.put("template", "templates/cuisine.vtl");
       return new ModelAndView(model, layout);

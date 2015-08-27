@@ -10,7 +10,7 @@
     <button type="submit" class="btn btn-success">Add restaurant</button>
   </form>
 
-  #if($restaurants)
+  #if($restaurants.size() != 0)
   <p>Click on a restaurant to manage it:</p>
   <ul>
     #foreach($restaurant in $restaurants)

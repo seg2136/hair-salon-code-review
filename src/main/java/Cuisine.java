@@ -72,6 +72,7 @@ public class Cuisine {
     }
   }
 
+
     public void update(String description) {
       try(Connection con = DB.sql2o.open()) {
         String sql = "UPDATE cuisines SET description = :description WHERE id = :id";

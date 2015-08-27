@@ -44,6 +44,15 @@ public class Restaurant {
     }
   }
 
+  public static List<Restaurant> allCuisineRestaurants(int cuisine_id) {
+    String sql = "SELECT id, name, cuisine_id FROM restaurants WHERE cuisine_id=:cuisine_id";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+        .addParameter("cuisine_id", cuisine_id)
+        .executeAndFetch(Restaurant.class);
+    }
+  }
+
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO restaurants (name, cuisine_id) VALUES (:name, :cuisine_id)";
@@ -78,11 +87,11 @@ public class Restaurant {
     try(Connection con = DB.sql2o.open()) {
       String sql = "DELETE FROM restaurants WHERE cuisine_id=:id AND id>=1";
       con.createQuery(sql)
-        .addParameter("id", id)
-        .addParameter("cuisine_id", cuisine_id)
-        .executeUpdate();
-    }
-  }
+          .addParameter("id", id)
+          .addParameter("cuisine_id", cuisine_id)
+          .executeUpdate();
+        }
+      }
 
   public void update(String name) {
     try(Connection con = DB.sql2o.open()) {
