@@ -119,23 +119,37 @@ public class App {
       model.put("template", "templates/cuisine.vtl");
       restaurant.delete();
       model.put("cuisine", cuisine);
-      model.put("restaurants", Restaurant.all());
+      model.put("restaurants", Restaurant.allCuisineRestaurants(Integer.parseInt(request.params(":id"))));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/cuisines/:cuisine_id/restaurants/delete-all", (request, response) -> {
-      //need to put :id in the url so that we can grab it below
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      String name = request.queryParams("name");
-      Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":cuisine_id")));
-      Restaurant restaurant = new Restaurant(name, cuisine.getId());
-      restaurant.deleteRestaurants();
-      model.put("cuisine", cuisine);
-      model.put("restaurants", Restaurant.all());
-      model.put("template", "templates/cuisine.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+    get("/cuisines/:id/restaurants", (request, response) -> {
+      response.redirect("/cuisines/" + request.params(":id") + "/restaurants");
+      return null;
+    });
 
+
+
+    // get("/cuisines/:id", (request, response) -> {
+    //   response.redirect("/cuisines/" + request.params(":id") + "/restaurants");
+    //   return null;
+    // });
 
   }
 }
+
+
+
+    //
+    // post("/cuisines/:cuisine_id/restaurants/delete-all", (request, response) -> {
+    //   //need to put :id in the url so that we can grab it below
+    //   HashMap<String, Object> model = new HashMap<String, Object>();
+    //   String name = request.queryParams("name");
+    //   Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":cuisine_id")));
+    //   Restaurant restaurant = new Restaurant(name, cuisine.getId());
+    //   restaurant.deleteRestaurants();
+    //   model.put("cuisine", cuisine);
+    //   model.put("restaurants", Restaurant.all());
+    //   model.put("template", "templates/cuisine.vtl");
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
