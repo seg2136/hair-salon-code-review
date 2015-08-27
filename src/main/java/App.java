@@ -113,20 +113,16 @@ public class App {
 
     //HTTP POST DELETE METHOD FOR RESTAURANT
     post("/cuisines/:cuisine_id/restaurants/:id/delete", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
       Restaurant restaurant = Restaurant.find(Integer.parseInt(request.params(":id")));
-      Cuisine cuisine = Cuisine.find(Integer.parseInt(request.params(":cuisine_id")));
-      model.put("template", "templates/cuisine.vtl");
       restaurant.delete();
-      model.put("cuisine", cuisine);
-      model.put("restaurants", Restaurant.allCuisineRestaurants(Integer.parseInt(request.params(":id"))));
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
-
-    get("/cuisines/:id/restaurants", (request, response) -> {
-      response.redirect("/cuisines/" + request.params(":id") + "/restaurants");
+      response.redirect("/cuisines/" + request.params(":cuisine_id") + "/restaurants");
       return null;
     });
+
+    // get("/cuisines/:id/restaurants", (request, response) -> {
+    //   response.redirect("/cuisines/" + request.params(":id") + "/restaurants" );
+    //   return null;
+    // });
 
 
 
