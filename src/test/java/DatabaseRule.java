@@ -4,15 +4,15 @@ import org.sql2o.*;
 public class DatabaseRule extends ExternalResource {
 
   protected void before() {
-  DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/best_restaurant_test", null, null);
+  DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
 }
 
 protected void after() {
   try(Connection con = DB.sql2o.open()) {
-    String deleteCuisinesQuery = "DELETE FROM cuisines *;";
-    String deleteRestaurantsQuery = "DELETE FROM restaurants *;";
-    con.createQuery(deleteCuisinesQuery).executeUpdate();
-    con.createQuery(deleteRestaurantsQuery).executeUpdate();
+    String deleteStylistsQuery = "DELETE FROM stylists *;";
+    String deleteClientsQuery = "DELETE FROM clients *;";
+    con.createQuery(deleteStylistsQuery).executeUpdate();
+    con.createQuery(deleteClientsQuery).executeUpdate();
   }
 }
 }

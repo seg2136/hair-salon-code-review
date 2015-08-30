@@ -1,21 +1,21 @@
-<h1>Your Favorite Restaurants!</h1>
+<h1>Hair Salon!</h1>
 
-<h2>Add your favorite cuisines:</h2>
+<h2>Add a stylist's name:</h2>
 
 
 
-<form action="/cuisines" method="post">
-  <label for="description">Cuisine</label>
-  <input id="description" name="description" type="text">
-  <button type="submit" class="btn btn-success">Add Cuisine</button>
+<form action="/stylists" method="post">
+  <label for="stylist_name">Stylist</label>
+  <input id="stylist_name" name="stylist_name" type="text">
+  <button type="submit" class="btn btn-success">Add Stylist</button>
 </form>
 
-<form action="/restaurants" method="post">
+<form action="/clients" method="post">
   <div class="form-group">
-  <label for="cuisine_id">Select a cuisine</label>
-  <select id="cuisine_id" name="cuisine_id" type="text">
-    #foreach($cuisine in $cuisines)
-      <option value="$cuisine.getId()">$cuisine.getDescription()</option>
+  <label for="stylist_id">Select a stylist</label>
+  <select id="stylist_id" name="stylist_id" type="text">
+    #foreach($stylist in $stylists)
+      <option value="$stylist.getId()">$stylist.getStylistName()</option>
       #end
     </select>
   </div>
@@ -23,13 +23,13 @@
 
 </form>
 
-    #if($cuisines)
-    <p>To manage your restaurant list, click on a cuisine:</p>
+    #if($stylists)
+    <p>Click on a stylist to manage their client list:</p>
     <ul>
-      #foreach($cuisine in $cuisines)
-    <li><a href="/cuisines/$cuisine.getId()">$cuisine.getDescription()</a></li>
+      #foreach($stylist in $stylists)
+    <li><a href="/stylists/$stylist.getId()">$stylist.getStylistName()</a></li>
     #end
   </ul>
     #else
-    <p>There are no cuisines in your list yet!</p>
+    <p>You have not added a stylist yet!</p>
     #end

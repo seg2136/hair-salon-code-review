@@ -1,12 +1,12 @@
-# Best Restaurant
+# Hair Salon - Code Review
 
-##### Object-Oriented Java with SQL Exercise for Epicodus, 27 August 2015
+##### Java Database Basics code review for Epicodus, 28 August 2015
 
-#### By Nataliya Bareeva-Miller and Stephany Garcia
+#### By Stephany Garcia
 
 ## Description
 
-Create a website where users can add their favorite restaurants by the type of cuisine they offer.
+Create an app for a hair salon. The owner should be able to add a list of the stylists, and for each stylist, add clients who see that stylist. The stylists work independently, so each client only belongs to a single stylist.
 
 ## Setup
 
@@ -15,7 +15,7 @@ Using the command line, navigate to the top level of the cloned directory.
 Make sure you have gradle installed. Then run the following command in your terminal:
 gradle run
 Go to localhost:4567.
-Make your own list of favorite restaurants!
+Manage your hair salon!
 
 ## Technologies Used
 
@@ -29,7 +29,7 @@ PostgreSQL
 
 ### Legal
 
-Copyright (c) 2015 Nataliya Bareeva-Miller, Stephany Garcia
+Copyright (c) 2015 Stephany Garcia
 
 This software is licensed under the MIT license.
 
