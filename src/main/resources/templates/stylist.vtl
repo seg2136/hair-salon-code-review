@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<h1>Add a Client to $stylist.getStylistName()</h1>
+
+    <form action="/stylists/$stylist.getId()/clients" method="post">
+
+    <div class="form-group">
+      <label for="name">Add client</label>
+      <input id="client_name" name="client_name" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success">Add client</button>
+  </form>
+
+  #if($clients.size() != 0)
+  <p>To update or delete a client, click on their name:</p>
+  <ul>
+    #foreach($client in $clients)
+  <li><a href="/stylists/$stylist.getId()/clients/$client.getId()/update">$client.getClientName()</a></li>
+  #end
+</ul>
+  #else
+  <p>There are no clients in your list yet!</p>
+  #end
+
+
+  <br>
+
+
+
+<!--BUTTONS TO UPDATE AND DELETE STYLIST-->
+<br>
+
+  <form action="/stylists/$stylist.getId()/delete" method="post">
+    <button type="submit" class="btn btn-success">Delete stylist</button>
+  </form>
+
+<br>
+
+<form action="/stylists/$stylist.getId()/update">
+  <button type="submit" class="btn btn-info">Change Stylist's Name</button>
+</form>
+
+<br>
+
+
+<a href="/">Return to Main Page</a>

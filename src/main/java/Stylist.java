@@ -65,24 +65,24 @@ public class Stylist {
     }
   }
 
-//   public void delete() {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "DELETE FROM cuisines WHERE id = :id";
-//       con.createQuery(sql)
-//         .addParameter("id", id)
-//         .executeUpdate();
-//     }
-//   }
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM stylists WHERE id = :id";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 
 
-//     public void update(String description) {
-//       try(Connection con = DB.sql2o.open()) {
-//         String sql = "UPDATE cuisines SET description = :description WHERE id = :id";
-//         con.createQuery(sql)
-//           .addParameter("description", description)
-//           .addParameter("id", id)
-//           .executeUpdate();
-//       }
-//     }
+    public void update(String stylist_name) {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "UPDATE stylists SET stylist_name = :stylist_name WHERE id = :id";
+        con.createQuery(sql)
+          .addParameter("stylist_name", stylist_name)
+          .addParameter("id", id)
+          .executeUpdate();
+      }
+    }
 
 }

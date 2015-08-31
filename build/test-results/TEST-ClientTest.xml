@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ClientTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-30T23:32:51" hostname="Stephanys-MacBook-Air-2.local" time="0.26">
+<testsuite name="ClientTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-31T01:22:55" hostname="Stephanys-MacBook-Air-2.local" time="0.257">
   <properties/>
-  <testcase name="saves_clientNameIntoDatabase_true" classname="ClientTest" time="0.069"/>
-  <testcase name="equals_returnsTrueIfClientNamesAretheSame" classname="ClientTest" time="0.013"/>
-  <testcase name="all_emptyAtFirst" classname="ClientTest" time="0.026"/>
-  <testcase name="save_assignsIdToObject" classname="ClientTest" time="0.043"/>
-  <testcase name="save_StylistIdIntoDB" classname="ClientTest" time="0.063"/>
-  <testcase name="find_ClientInDatabase_true" classname="ClientTest" time="0.045"/>
+  <testcase name="saves_clientNameIntoDatabase_true" classname="ClientTest" time="0.049"/>
+  <testcase name="equals_returnsTrueIfClientNamesAretheSame" classname="ClientTest" time="0.017"/>
+  <testcase name="all_emptyAtFirst" classname="ClientTest" time="0.027"/>
+  <testcase name="save_assignsIdToObject" classname="ClientTest" time="0.049"/>
+  <testcase name="save_StylistIdIntoDB" classname="ClientTest" time="0.066"/>
+  <testcase name="find_ClientInDatabase_true" classname="ClientTest" time="0.047"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

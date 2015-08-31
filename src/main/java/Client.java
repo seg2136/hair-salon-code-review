@@ -43,14 +43,14 @@ public class Client {
     }
   }
 
-//   public static List<Restaurant> allCuisineRestaurants(int cuisine_id) {
-//     String sql = "SELECT id, name, cuisine_id FROM restaurants WHERE cuisine_id=:cuisine_id";
-//     try(Connection con = DB.sql2o.open()) {
-//       return con.createQuery(sql)
-//         .addParameter("cuisine_id", cuisine_id)
-//         .executeAndFetch(Restaurant.class);
-//     }
-//   }
+  public static List<Client> allStylistClients(int stylist_id) {
+    String sql = "SELECT id, client_name, stylist_id FROM clients WHERE stylist_id=:stylist_id";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql)
+        .addParameter("stylist_id", stylist_id)
+        .executeAndFetch(Client.class);
+    }
+  }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
@@ -73,32 +73,32 @@ public class Client {
     }
   }
 
-//   public void delete() {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "DELETE FROM restaurants WHERE id = :id;";
-//       con.createQuery(sql)
-//         .addParameter("id", id)
-//         .executeUpdate();
-//     }
-//   }
+  public void delete() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM clients WHERE id = :id;";
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 
-//   public void deleteRestaurants() {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "DELETE FROM restaurants WHERE cuisine_id=:id AND id>=1";
-//       con.createQuery(sql)
-//           .addParameter("id", id)
-//           .addParameter("cuisine_id", cuisine_id)
-//           .executeUpdate();
-//         }
-//       }
+  public void deleteAllClients() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "DELETE FROM clients WHERE stylist_id=:id AND id>=1";
+      con.createQuery(sql)
+          .addParameter("id", id)
+          .addParameter("stylist_id", stylist_id)
+          .executeUpdate();
+        }
+      }
 
-//   public void update(String name) {
-//     try(Connection con = DB.sql2o.open()) {
-//       String sql = "UPDATE restaurants SET name = :name WHERE id=:id";
-//       con.createQuery(sql)
-//         .addParameter("name", name)
-//         .addParameter("id", id)
-//         .executeUpdate();
-//     }
-//   }
+  public void update(String client_name) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE clients SET client_name = :client_name WHERE id=:id";
+      con.createQuery(sql)
+        .addParameter("client_name", client_name)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
 }

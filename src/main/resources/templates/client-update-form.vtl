@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<h1>Update your client for $stylist.getStylistName():</h1>
+
+<form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post">
+  <label for="client_name">Change Client Name</label>
+  <input id="client_name" name="client_name" type="text">
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+
+<!--DELETE CLIENT BUTTON-->
+<br>
+<form action="/stylists/$stylist.getId()/clients/$client.getId()/delete" method="post">
+  <button type="submit" class="btn btn-success">Delete Client</button>
+</form>
+<br> 
