@@ -10,6 +10,14 @@ Create an app for a hair salon. The owner should be able to add a list of the st
 
 ## Setup
 
+For Database--
+Make sure you have postgreSQL installed. Then open a new terminal and run $psql. After, type the following command in your terminal:
+CREATE DATABASE hair_salon;
+/c hair_salon;
+CREATE TABLE stylists (id serial PRIMARY KEY, stylist_name varchar);
+CREATE TABLE clients (id serial PRIMARY KEY, client_name varchar, stylist_id int);
+
+For Java App--
 Clone this repository.
 Using the command line, navigate to the top level of the cloned directory.
 Make sure you have gradle installed. Then run the following command in your terminal:
